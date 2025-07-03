@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <h2>Welcome, {{ user.username }}!</h2>
+    <p>You are logged in.</p>
+
+    <h3>Your Recipes:</h3>
+    <ul>
+        {% for recipe in recipes %}
+            <li>
+                <strong>{{ recipe.title }}</strong><br>
+                {{ recipe.description }}
+            </li>
+        {% empty %}
+            <li>No recipes yet.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
